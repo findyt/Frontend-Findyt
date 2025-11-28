@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="utf-8"?><androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    tools:context=".Perfil">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#FFEDED"
+        app:elevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:id="@+id/backButton"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="16dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:src="@drawable/regreso" />
+
+                <TextView
+                    android:id="@+id/titleTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="PERFIL"
+                    android:textColor="#4E4D00"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/appBarLayout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="32dp">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/profileImageView"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:layout_marginTop="24dp"
+                android:scaleType="centerCrop"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/CircularImageView"
+                tools:src="@tools:sample/avatars" />
+
+
+
+            <TextView
+                android:id="@+id/apodoLabel"
+                style="@style/ProfileLabel"
+                android:text="APODO:"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/apodoCard"
+                app:layout_constraintBottom_toBottomOf="@+id/apodoCard" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/apodoCard"
+                style="@style/ProfileCard"
+                android:layout_marginTop="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/apodoLabel"
+                app:layout_constraintTop_toBottomOf="@id/profileImageView">
+
+                <RelativeLayout style="@style/ProfileCardContent">
+
+                    <TextView
+                        android:id="@+id/apodoTextView"
+                        style="@style/ProfileCardText"
+                        android:layout_width="match_parent"
+                        android:layout_toStartOf="@id/editApodoIcon"
+                        android:layout_marginEnd="8dp"
+                        tools:text="Alex Sofia" />
+
+                    <EditText
+                        android:id="@+id/apodoEditText"
+                        style="@style/ProfileCardText"
+                        android:maxLength="20"
+                        android:layout_width="match_parent"
+                        android:layout_toStartOf="@id/editApodoIcon"
+                        android:layout_marginEnd="8dp"
+                        android:background="@android:color/transparent"
+                        android:visibility="gone"
+                        tools:text="Alex Sofia" />
+
+                    <ImageView
+                        android:id="@+id/editApodoIcon"
+                        style="@style/ProfileEditIcon"
+                        android:src="@drawable/editar" />
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/generoLabel"
+                style="@style/ProfileLabel"
+                android:text="GÉNERO:"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/generoCard"
+                app:layout_constraintBottom_toBottomOf="@id/generoCard" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/generoCard"
+                style="@style/ProfileCard"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/generoLabel"
+                app:layout_constraintTop_toBottomOf="@id/apodoCard">
+
+                <RelativeLayout style="@style/ProfileCardContent">
+                    <TextView
+                        android:id="@+id/generoTextView"
+                        style="@style/ProfileCardText"
+                        tools:text="FEMENINO" />
+                    <ImageView
+                        android:id="@+id/editGeneroIcon"
+                        style="@style/ProfileEditIcon"
+                        android:src="@drawable/editar" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/preferenciaLabel"
+                style="@style/ProfileLabel"
+                android:text="PREFERENCIA:"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/preferenciaCard"
+                app:layout_constraintBottom_toBottomOf="@id/preferenciaCard" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/preferenciaCard"
+                style="@style/ProfileCard"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/preferenciaLabel"
+                app:layout_constraintTop_toBottomOf="@id/generoCard">
+
+                <RelativeLayout style="@style/ProfileCardContent">
+                    <TextView
+                        android:id="@+id/preferenciaTextView"
+                        style="@style/ProfileCardText"
+                        tools:text="HETEROSEXUAL" />
+                    <ImageView
+                        android:id="@+id/editPreferenciaIcon"
+                        style="@style/ProfileEditIcon"
+                        android:src="@drawable/editar" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/ubicacionLabel"
+                style="@style/ProfileLabel"
+                android:text="UBICACIÓN:"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/ubicacionCard"
+                app:layout_constraintBottom_toBottomOf="@id/ubicacionCard" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/ubicacionCard"
+                style="@style/ProfileCard"
+                android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ubicacionLabel"
+            app:layout_constraintTop_toBottomOf="@id/preferenciaCard">
+
+            <LinearLayout
+                android:id="@+id/ubicacionButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="12dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/ubicacion"
+                app:tint="@android:color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="UBICACIÓN"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/trabajoLabel"
+                style="@style/ProfileLabel"
+                android:text="TRABAJO:"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/trabajoCard"
+                app:layout_constraintBottom_toBottomOf="@id/trabajoCard" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/trabajoCard"
+                style="@style/ProfileCard"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/trabajoLabel"
+                app:layout_constraintTop_toBottomOf="@+id/ubicacionCard">
+
+                <RelativeLayout style="@style/ProfileCardContent">
+
+                    <TextView
+                        android:id="@+id/trabajoTextView"
+                        style="@style/ProfileCardText"
+                        android:layout_width="match_parent"
+                        android:layout_toStartOf="@id/editTrabajoIcon"
+                        android:layout_marginEnd="8dp"
+                        tools:text="Secretaria" />
+
+                    <EditText
+                        android:id="@+id/trabajoEditText"
+                        style="@style/ProfileCardText"
+                        android:maxLength="30"
+                        android:layout_width="match_parent"
+                        android:layout_toStartOf="@id/editTrabajoIcon"
+                        android:layout_marginEnd="8dp"
+                        android:background="@android:color/transparent"
+                        android:visibility="gone"
+                        tools:text="Secretaria" />
+
+                    <ImageView
+                        android:id="@+id/editTrabajoIcon"
+                        style="@style/ProfileEditIcon"
+                        android:src="@drawable/editar" />
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/educacionLabel"
+                style="@style/ProfileLabel"
+                android:text="EDUCACIÓN:"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/educacionCard"
+                app:layout_constraintBottom_toBottomOf="@id/educacionCard" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/educacionCard"
+                style="@style/ProfileCard"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/educacionLabel"
+                app:layout_constraintTop_toBottomOf="@id/trabajoCard">
+
+                <RelativeLayout style="@style/ProfileCardContent">
+
+                    <TextView
+                        android:id="@+id/educacionTextView"
+                        style="@style/ProfileCardText"
+                        android:layout_width="match_parent"
+                        android:layout_toStartOf="@id/editEducacionIcon"
+                        android:layout_marginEnd="8dp"
+                        tools:text="Universidad de México" />
+
+                    <EditText
+                        android:id="@+id/educacionEditText"
+                        style="@style/ProfileCardText"
+                        android:maxLength="30"
+                        android:layout_width="match_parent"
+                        android:layout_toStartOf="@id/editEducacionIcon"
+                        android:layout_marginEnd="8dp"
+                        android:background="@android:color/transparent"
+                        android:visibility="gone"
+                        tools:text="Universidad de México" />
+
+                    <ImageView
+                        android:id="@+id/editEducacionIcon"
+                        style="@style/ProfileEditIcon"
+                        android:src="@drawable/editar" />
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <TextView
+                android:id="@+id/pesoLabel"
+                style="@style/ProfileLabel"
+                android:text="PESO:"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/pesoCard"
+                app:layout_constraintBottom_toBottomOf="@id/pesoCard" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/pesoCard"
+                style="@style/ProfileCard"
+                android:layout_width="0dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toStartOf="@+id/guideline_center"
+            app:layout_constraintStart_toEndOf="@id/pesoLabel"
+            app:layout_constraintTop_toBottomOf="@id/educacionCard">
+
+            <RelativeLayout style="@style/ProfileCardContent">
+                <TextView
+                    android:id="@+id/pesoTextView"
+                    style="@style/ProfileCardText"
+                    android:layout_width="match_parent"
+                    android:layout_toStartOf="@id/editPesoIcon"
+                    android:layout_marginEnd="8dp"
+                    tools:text="53 KG" />
+                <EditText
+                    android:id="@+id/pesoEditText"
+                    style="@style/ProfileCardText"
+                    android:maxLength="4"
+                    android:layout_width="match_parent"
+                    android:layout_toStartOf="@id/editPesoIcon"
+                    android:layout_marginEnd="8dp"
+                    android:background="@android:color/transparent"
+                    android:inputType="numberDecimal"
+                    android:visibility="gone"
+                    tools:text="53" />
+                <ImageView
+                    android:id="@+id/editPesoIcon"
+                    style="@style/ProfileEditIcon"
+                    android:src="@drawable/editar" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/estaturaLabel"
+        style="@style/ProfileLabel"
+        android:layout_width="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="ALTURA:"
+        app:layout_constraintStart_toEndOf="@id/guideline_center"
+    app:layout_constraintTop_toTopOf="@id/estaturaCard"
+    app:layout_constraintBottom_toBottomOf="@id/estaturaCard"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/estaturaCard"
+        style="@style/ProfileCard"
+        android:layout_width="0dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/estaturaLabel"
+        app:layout_constraintTop_toBottomOf="@id/educacionCard">
+
+        <RelativeLayout style="@style/ProfileCardContent">
+            <TextView
+                android:id="@+id/estaturaTextView"
+                style="@style/ProfileCardText"
+                android:layout_width="match_parent"
+                android:layout_toStartOf="@id/editEstaturaIcon"
+                android:layout_marginEnd="8dp"
+                tools:text="1.65 m" />
+            <EditText
+                android:id="@+id/estaturaEditText"
+                style="@style/ProfileCardText"
+                android:maxLength="4"
+                android:layout_width="match_parent"
+                android:layout_toStartOf="@id/editEstaturaIcon"
+                android:layout_marginEnd="8dp"
+                android:background="@android:color/transparent"
+                android:inputType="numberDecimal"
+                android:visibility="gone"
+                tools:text="1.65" />
+            <ImageView
+                android:id="@+id/editEstaturaIcon"
+                style="@style/ProfileEditIcon"
+                android:src="@drawable/editar" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+
+
+    <TextView
+                android:id="@+id/interesesLabel"
+                style="@style/ProfileLabel"
+                android:text="INTERESES:"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/interesesCard"
+                app:layout_constraintBottom_toBottomOf="@id/interesesCard" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/interesesCard"
+                style="@style/ProfileCard"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/interesesLabel"
+                app:layout_constraintTop_toBottomOf="@id/pesoCard">
+
+                <RelativeLayout style="@style/ProfileCardContent">
+
+                    <TextView
+                        android:id="@+id/interesesTextView"
+                        style="@style/ProfileCardText"
+                        android:layout_width="match_parent"
+                        android:layout_toStartOf="@id/editInteresesIcon"
+                        android:layout_marginEnd="8dp"
+                        tools:text="#Jardineria #Caminatas #Fotografia #Diseño" />
+
+                    <EditText
+                        android:id="@+id/interesesEditText"
+                        style="@style/ProfileCardText"
+                        android:maxLength="50"
+                        android:layout_width="match_parent"
+                        android:layout_toStartOf="@id/editInteresesIcon"
+                        android:layout_marginEnd="8dp"
+                        android:background="@android:color/transparent"
+                        android:visibility="gone"
+                        tools:text="#Jardineria #Caminatas #Fotografia #Diseño" />
+
+                    <ImageView
+                        android:id="@+id/editInteresesIcon"
+                        style="@style/ProfileEditIcon"
+                        android:src="@drawable/editar" />
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/descripcionLabel"
+                style="@style/ProfileLabel"
+                android:text="DESCRIPCIÓN:"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/interesesCard" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/descripcionCard"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="4dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/descripcionLabel">
+
+                <RelativeLayout
+                    style="@style/ProfileCardContent"
+                    android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/descripcionTextView"
+                    style="@style/ProfileCardText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:layout_toStartOf="@id/editDescripcionIcon"
+                    android:layout_marginEnd="8dp"
+                    android:textStyle="normal"
+                    tools:text="Hola, mi nombre es Alexia..." />
+
+                <EditText
+                    android:id="@+id/descripcionEditText"
+                    style="@style/ProfileCardText"
+                    android:maxLength="300"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:layout_toStartOf="@id/editDescripcionIcon"
+                    android:layout_marginEnd="8dp"
+                    android:background="@android:color/transparent"
+                    android:textStyle="normal"
+                    android:visibility="gone"
+                    tools:text="Hola, mi nombre es Alexia..." />
+
+                    <ImageView
+                        android:id="@+id/editDescripcionIcon"
+                        style="@style/ProfileEditIcon"
+                        android:src="@drawable/editar" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
